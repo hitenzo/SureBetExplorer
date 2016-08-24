@@ -27,8 +27,7 @@ namespace SureBetExplorer
                 {
                     if (_events[i].Item1 == _events[j].Item1)
                     {
-                        _matchedEvents.Add(_events[i]);
-                        _matchedEvents.Add(_events[j]);
+                        DetermineSureBet(_events[i], _events[j]);
                     }
                 }
             }
@@ -36,8 +35,14 @@ namespace SureBetExplorer
 
         public List<Tuple<string, double, double>> GetSureBets()
         {
-            List<Tuple<string, double, double>> sureBets;
+            List<Tuple<string, double, double>> sureBets = new List<Tuple<string, double, double>>();
             //TO DO: check matched events for possibility of sure bet and returns events which are sure bets
+            return sureBets;
+        }
+
+        public void DetermineSureBet(Tuple<string, double, double> firstEvent, Tuple<string, double, double> secondEvent)
+        {
+            //TO DO: check odds if sure bet occurs, if yes add
         }
 
     }

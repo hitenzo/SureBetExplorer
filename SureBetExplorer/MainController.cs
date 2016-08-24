@@ -14,5 +14,7 @@ namespace SureBetExplorer
             //TO DO: create surebetfinder object and pass events as parameter
         }
 
+        //TO DO: save founded events to a file
+
     }
 }
