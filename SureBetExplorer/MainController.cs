@@ -9,7 +9,7 @@ namespace SureBetExplorer
     class MainController
     {
 
-        public MainController(List<Tuple<string, double, double>> events)
+        public MainController(List<IBettingWebsite> websites)
         {
             //TO DO: create surebetfinder object and pass events as parameter
         }

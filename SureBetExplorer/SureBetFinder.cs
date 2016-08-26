@@ -8,41 +8,32 @@ namespace SureBetExplorer
 {
     class SureBetFinder
     {
-        private List<Tuple<string, double, double>> _events;
-        private List<Tuple<string, double, double>> _matchedEvents;
-        private List<Tuple<string, double, double>> _sureBets;
+        //private List<Tuple<string, double, double>> _events;
+        //private List<Tuple<string, double, double>> _matchedEvents;
+        //private List<Tuple<string, double, double>> _sureBets;
+        private List<IBettingWebsite> _websites;
 
-        public SureBetFinder(List<Tuple<string, double, double>> events)
+        public SureBetFinder(List<IBettingWebsite> websites)
         {
-            _events = events;
+            _websites = websites;
             Match();
-            _sureBets = GetSureBets();
         }
 
         public void Match()
         {
-            for (int i = 0; i <= _events.Count - 2; i++)
-            {
-                for (int j = i + 1; j <= _events.Count - 1; j++)
-                {
-                    if (_events[i].Item1 == _events[j].Item1)
-                    {
-                        DetermineSureBet(_events[i], _events[j]);
-                    }
-                }
-            }
+            
         }
 
         public List<Tuple<string, double, double>> GetSureBets()
         {
             List<Tuple<string, double, double>> sureBets = new List<Tuple<string, double, double>>();
-            //TO DO: check matched events for possibility of sure bet and returns events which are sure bets
+            //DeterminSureBet()
             return sureBets;
         }
 
         public void DetermineSureBet(Tuple<string, double, double> firstEvent, Tuple<string, double, double> secondEvent)
         {
-            //TO DO: check odds if sure bet occurs, if yes add
+            //TO DO: check odds if sure bet occurs
         }
 
     }

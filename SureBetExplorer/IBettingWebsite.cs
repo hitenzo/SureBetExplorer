@@ -8,8 +8,8 @@ namespace SureBetExplorer
 {
     interface IBettingWebsite
     {
-        List<Tuple<string, double, double>> Events { get; set; }
-
         void ScrapeEvents();
+
+        List<string> GetEventsNames();
     }
 }
