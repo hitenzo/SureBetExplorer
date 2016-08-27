@@ -7,7 +7,7 @@ using HtmlAgilityPack;
 
 namespace SureBetExplorer
 {
-    class WilliamHillSite: IBettingWebsite
+    public class WilliamHillSite: IBettingWebsite
     {
         private List<Tuple<string, double, double>> _events;
         private List<string> _eventsNames;
@@ -21,7 +21,17 @@ namespace SureBetExplorer
         public void ScrapeEvents()
         {
             HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load("http://www.c-sharpcorner.com");
+            HtmlDocument document = web.Load(_webAdress);
+
+            HtmlNode wrapper = document.DocumentNode.SelectNodes("//div[@id='ip_sport_0_types']").First();
+            foreach (var section in wrapper.SelectNodes(".//div"))
+            {
+                HtmlNode eventsGroup = section.SelectNodes("//div//div//table//tbody").First();
+                foreach (var singleEvent in eventsGroup.SelectNodes(".//tr"))
+                {
+                    
+                }
+            }
         }
 
         public List<string> GetEventsNames()
