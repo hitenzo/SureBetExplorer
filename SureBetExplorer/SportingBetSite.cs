@@ -9,7 +9,7 @@ namespace SureBetExplorer
 {
     class SportingBetSite: IBettingWebsite
     {
-        private List<Tuple<string, double, double>> _events;
+        private List<Tuple<string, double, double, double>> _events;
         private List<string> _eventsNames;
         private string _webAdress;
 
@@ -20,7 +20,10 @@ namespace SureBetExplorer
 
         public void ScrapeEvents()
         {
-            throw new NotImplementedException();
+            HtmlWeb web = new HtmlWeb();
+            HtmlDocument document = web.Load(_webAdress);
+
+            //HtmlNode wrapper = document.DocumentNode.SelectNodes("//div[@class='']").First();
         }
 
         public List<string> GetEventsNames()

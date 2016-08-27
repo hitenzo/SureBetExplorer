@@ -24,14 +24,14 @@ namespace SureBetExplorer
             
         }
 
-        public List<Tuple<string, double, double>> GetSureBets()
+        public List<Tuple<string, double, double, double>> GetSureBets()
         {
-            List<Tuple<string, double, double>> sureBets = new List<Tuple<string, double, double>>();
+            List<Tuple<string, double, double, double>> sureBets = new List<Tuple<string, double, double, double>>();
             //DeterminSureBet()
             return sureBets;
         }
 
-        public void DetermineSureBet(Tuple<string, double, double> firstEvent, Tuple<string, double, double> secondEvent)
+        public void DetermineSureBet(Tuple<string, double, double, double> firstEvent, Tuple<string, double, double, double> secondEvent)
         {
             //TO DO: check odds if sure bet occurs
         }
