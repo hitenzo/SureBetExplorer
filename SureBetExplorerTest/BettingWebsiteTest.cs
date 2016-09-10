@@ -8,7 +8,7 @@ namespace SureBetExplorerTest
     public class BettingWebsiteTest
     {
         [TestMethod]
-        public void ScrapeEventsTest()
+        public void ScrapeSportingBetTest()
         {
         }
     }

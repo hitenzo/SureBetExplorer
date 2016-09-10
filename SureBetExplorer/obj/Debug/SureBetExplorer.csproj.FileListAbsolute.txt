@@ -6,6 +6,7 @@ C:\.net projects\SureBetExplorer\SureBetExplorer\obj\Debug\SureBetExplorer.exe
 C:\.net projects\SureBetExplorer\SureBetExplorer\obj\Debug\SureBetExplorer.pdb
 C:\.net projects\SureBetExplorer-TEST\SureBetExplorer\bin\Debug\SureBetExplorer.exe.config
 C:\.net projects\SureBetExplorer-TEST\SureBetExplorer\obj\Debug\SureBetExplorer.exe
-C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\HtmlAgilityPack.dll
-C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\HtmlAgilityPack.pdb
-C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\HtmlAgilityPack.xml
+C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.dll
+C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.xml
+C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.Support.dll
+C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.Support.xml

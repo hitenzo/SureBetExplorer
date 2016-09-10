@@ -1,16 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 
 namespace SureBetExplorer
 {
-    class BetClicSite: IBettingWebsite
+    public class BetClicSite: IBettingWebsite
     {
-        private List<Tuple<string, double, double, double>> _events;
-        private List<string> _eventsNames;
+        private List<Tuple<string, double, double, double>> _events = new List<Tuple<string, double, double, double>>();
+        private List<string> _eventsNames = new List<string>();
         private string _webAdress;
 
         public BetClicSite(string adress)
@@ -21,32 +24,28 @@ namespace SureBetExplorer
 
         public void ScrapeEvents()
         {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load(_webAdress);
+            IWebDriver driver = new FirefoxDriver();
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(_webAdress);
 
-            HtmlNode wrapper = document.DocumentNode.SelectNodes("//div[@id='cal-wrapper-prelive']").First();
-            foreach (var daySection in wrapper.SelectNodes(".//div"))
+            IWebElement wrapper = driver.FindElement(By.XPath("//*[@ id='cal-wrapper-prelive']"));
+            var names = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-name']/a"));
+            var allOddsHome = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[1]/span"));
+            var allOddsDraw = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[2]/span"));
+            var allOddsAway = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[3]/span"));
+
+            for (int i=0; i<=names.Count-1; i++)
             {
-                foreach (var schedule in daySection.SelectNodes(".//div[@class='cal-schedule']"))
-                {
-                    foreach (var singleEvent in schedule.SelectNodes(".//div[@class='event']"))
-                    {
-                        string eventName = singleEvent.SelectNodes(".//div[@class='match-entry']//div[@class='match-name']//a").First().InnerHtml;
-                        _eventsNames.Add(eventName);
+                string nameOfEvent = names[i].Text;
+                _eventsNames.Add(nameOfEvent);
 
-                        string oddsHomeString = singleEvent.SelectNodes(".//div[@class='match-entry']//div[@class='match-odds']//div[1]//span").First().InnerHtml;
-                        double oddsHome = Convert.ToDouble(oddsHomeString);
+                double oddsHome = double.Parse(allOddsHome[i].Text);
+                double oddsDraw = double.Parse(allOddsDraw[i].Text);
+                double oddsAway = double.Parse(allOddsAway[i].Text);
 
-                        string oddsDrawString = singleEvent.SelectNodes(".//div[@class='match-entry']//div[@class='match-odds']//div[2]//span").First().InnerHtml;
-                        double oddsDraw = Convert.ToDouble(oddsDrawString);
-
-                        string oddsAwayString = singleEvent.SelectNodes(".//div[@class='match-entry']//div[@class='match-odds']//div[3]//span").First().InnerHtml;
-                        double oddsAway = Convert.ToDouble(oddsAwayString);
-
-                        _events.Add(new Tuple<string, double, double, double>(eventName, oddsHome, oddsDraw, oddsAway));
-                    }
-                }
+                _events.Add(new Tuple<string, double, double, double>(nameOfEvent, oddsHome, oddsDraw, oddsAway));
             }
+            driver.Close();
         }
 
         public List<string> GetEventsNames()

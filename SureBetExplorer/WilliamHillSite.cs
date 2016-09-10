@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 
 namespace SureBetExplorer
 {
@@ -21,30 +22,13 @@ namespace SureBetExplorer
 
         public void ScrapeEvents()
         {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load(_webAdress);
+            IWebDriver driver = new FirefoxDriver();
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(_webAdress);
 
-            HtmlNode wrapper = document.DocumentNode.SelectNodes("//div[@id='ip_sport_0_types']").First();
-            foreach (var section in wrapper.SelectNodes(".//div"))
-            {
-                HtmlNode eventsGroup = section.SelectNodes("//div//div//table//tbody").First();
-                foreach (var singleEvent in eventsGroup.SelectNodes(".//tr"))
-                {
-                    string eventName = singleEvent.SelectNodes(".//td[3]//a//span").First().InnerHtml;
-                    _eventsNames.Add(eventName);
+            //To Do: click on pop up
 
-                    string oddsHomeString = singleEvent.SelectNodes(".//td[5]//div//div[id]").First().InnerHtml;
-                    double oddsHome = Convert.ToDouble(oddsHomeString);
-
-                    string oddsDrawString = singleEvent.SelectNodes(".//td[6]//div//div[id]").First().InnerHtml;
-                    double oddsDraw = Convert.ToDouble(oddsDrawString);
-
-                    string oddsAwayString = singleEvent.SelectNodes(".//td[7]//div//div[id]").First().InnerHtml;
-                    double oddsAway = Convert.ToDouble(oddsAwayString);
-
-                    _events.Add(new Tuple<string, double, double, double>(eventName, oddsHome, oddsDraw, oddsAway));
-                }
-            }
+            IWebElement wrapper = driver.FindElement(By.Id("ip_sport_0_types"));
         }
 
         public List<string> GetEventsNames()

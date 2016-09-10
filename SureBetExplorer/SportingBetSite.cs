@@ -3,46 +3,51 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using HtmlAgilityPack;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Firefox;
 
 namespace SureBetExplorer
 {
-    class SportingBetSite: IBettingWebsite
+    public class SportingBetSite: IBettingWebsite
     {
-        private List<Tuple<string, double, double, double>> _events;
-        private List<string> _eventsNames;
+        private List<Tuple<string, double, double, double>> _events = new List<Tuple<string, double, double, double>>();
+        private List<string> _eventsNames = new List<string>();
         private string _webAdress;
 
         public SportingBetSite(string adress)
         {
             _webAdress = adress;
+            ScrapeEvents();
         }
 
         public void ScrapeEvents()
         {
-            HtmlWeb web = new HtmlWeb();
-            HtmlDocument document = web.Load(_webAdress);
+            IWebDriver driver = new FirefoxDriver();
+            driver.Manage().Window.Maximize();
+            driver.Navigate().GoToUrl(_webAdress);
 
-            HtmlNode wrapper = document.DocumentNode.SelectNodes("//div[@class='TeamTieCoupon']")[2];
-            foreach (var singleEvent in wrapper.SelectNodes(".//div[@class='couponEvents']//div[@class='event']"))
+            IWebElement wrapper = driver.FindElements(By.XPath("//div[@id='eventGroups']/div"))[1];
+            var names = wrapper.FindElements(By.CssSelector(".eventName > a"));
+            var allOddsHome = wrapper.FindElements(By.XPath(".//*[@class='market']/div[1]/div[@id='isOffered']/a/span[2]"));
+            var allOddsDraw = wrapper.FindElements(By.XPath(".//*[@class='market']/div[2]/div[@id='isOffered']/a/span[2]"));
+            var allOddsAway = wrapper.FindElements(By.XPath(".//*[@class='market']/div[3]/div[@id='isOffered']/a/span[2]"));
+
+            for (int i=0; i<=names.Count-1; i++)
             {
-                string eventName = singleEvent.SelectNodes(".//div[@class='columns']//div[@class='eventInfo']//div[@class='eventName']//a").First().InnerHtml;
-                _eventsNames.Add(eventName);
+                string nameOfEvent = names[i].Text;
+                _eventsNames.Add(nameOfEvent);
 
-                HtmlNode homeInfo = singleEvent.SelectNodes(".//div[@class='columns']//div[@class='selections']//div[@class='market']//div[@class='home']").First();
-                string oddsHomeString = homeInfo.SelectNodes(".//div[@id='isOffered']//a[@class='price']//span[@class='EU']").First().InnerHtml;
-                double oddsHome = Convert.ToDouble(oddsHomeString);
+                string oddsHomeString = allOddsHome[i].Text.Replace(".", ",");
+                string oddsDrawString = allOddsDraw[i].Text.Replace(".", ",");
+                string oddsAwayString = allOddsAway[i].Text.Replace(".", ",");
 
-                HtmlNode drawInfo = singleEvent.SelectNodes(".//div[@class='columns']//div[@class='selections']//div[@class='market']//div[@class='draw']").First();
-                string oddsDrawString = drawInfo.SelectNodes(".//div[@id='isOffered']//a[@class='price']//span[@class='EU']").First().InnerHtml;
-                double oddsDraw = Convert.ToDouble(oddsDrawString);
+                double oddsHome = double.Parse(oddsHomeString);
+                double oddsDraw = double.Parse(oddsDrawString);
+                double oddsAway = double.Parse(oddsAwayString);
 
-                HtmlNode awayInfo = singleEvent.SelectNodes(".//div[@class='columns']//div[@class='selections']//div[@class='market']//div[@class='away']").First();
-                string oddsAwayString = awayInfo.SelectNodes(".//div[@id='isOffered']//a[@class='price']//span[@class='EU']").First().InnerHtml;
-                double oddsAway = Convert.ToDouble(oddsAwayString);
-
-                _events.Add(new Tuple<string, double, double, double>(eventName, oddsHome, oddsDraw, oddsAway));
+                _events.Add(new Tuple<string, double, double, double>(nameOfEvent, oddsHome, oddsDraw, oddsAway));
             }
+            driver.Close();
         }
 
         public List<string> GetEventsNames()
