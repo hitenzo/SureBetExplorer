@@ -34,7 +34,7 @@ namespace SureBetExplorer
             var allOddsDraw = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[2]/span"));
             var allOddsAway = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[3]/span"));
 
-            for (int i=0; i<=names.Count-1; i++)
+            for (int i = 0; i <= names.Count - 1; i++)
             {
                 string nameOfEvent = names[i].Text;
                 _eventsNames.Add(nameOfEvent);
@@ -51,6 +51,11 @@ namespace SureBetExplorer
         public List<string> GetEventsNames()
         {
             return _eventsNames;
+        }
+
+        public List<Tuple<string, double, double, double>> GetEvents()
+        {
+            return _events;
         }
     }
 }

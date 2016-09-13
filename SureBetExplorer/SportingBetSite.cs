@@ -34,7 +34,7 @@ namespace SureBetExplorer
 
             for (int i=0; i<=names.Count-1; i++)
             {
-                string nameOfEvent = names[i].Text;
+                string nameOfEvent = names[i].Text.Replace(" v ", " - ");
                 _eventsNames.Add(nameOfEvent);
 
                 string oddsHomeString = allOddsHome[i].Text.Replace(".", ",");
@@ -53,6 +53,11 @@ namespace SureBetExplorer
         public List<string> GetEventsNames()
         {
             return _eventsNames;
+        }
+
+        public List<Tuple<string, double, double, double>> GetEvents()
+        {
+            return _events;
         }
     }
 }

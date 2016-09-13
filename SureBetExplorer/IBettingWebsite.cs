@@ -11,5 +11,7 @@ namespace SureBetExplorer
         void ScrapeEvents();
 
         List<string> GetEventsNames();
+
+        List<Tuple<string, double, double, double>> GetEvents();
     }
 }
