@@ -10,7 +10,7 @@ namespace SureBetExplorer
     {
         private List<Tuple<string, double, double>> _events;
         private List<Tuple<string, double, double>> _matchedEvents;
-        private List<Tuple<string, double, double>> _sureBets;
+        private List<string> _sureBets;
         private List<IBettingWebsite> _websites;
 
         public SureBetFinder(List<IBettingWebsite> websites)
@@ -30,7 +30,7 @@ namespace SureBetExplorer
 
                     if (matchingEvents.Any())
                     {
-                        DetermineSureBet(matchingEvents, i, j);
+                        OddsChecker(matchingEvents, i, j);
                     }
                 }
             }
@@ -42,9 +42,27 @@ namespace SureBetExplorer
             return sureBets;
         }
 
-        public void DetermineSureBet(IEnumerable<string> matchingEvents, int i, int j)
+        public void OddsChecker(IEnumerable<string> matchingEvents, int i, int j)
         {
-        }
+            foreach (var matchingEvent in matchingEvents)
+            {
+                Tuple<string, double, double, double> firstEventInfo = _websites[i].GetEvents().Single(t => t.Item1 == matchingEvent);
+                Tuple<string, double, double, double> secondEventInfo = _websites[j].GetEvents().Single(t => t.Item1 == matchingEvent);
 
+                double oddsHome = Math.Max(firstEventInfo.Item2, secondEventInfo.Item2);
+                double oddsDraw = Math.Max(firstEventInfo.Item3, secondEventInfo.Item3);
+                double oddsAway = Math.Max(firstEventInfo.Item4, secondEventInfo.Item4);
+
+                double conditionOfEvent = (1/oddsHome) + (1/oddsDraw) + (1/oddsAway);
+                if (conditionOfEvent<1)
+                {
+                    double betForHome = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsHome;
+                    double betForDraw = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsDraw;
+                    double betForAway = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsAway;
+
+                    _sureBets.Add(string.Format("{0} : {1} of betting money for 1, {2} for x, {3} for 2", matchingEvent, betForHome, betForDraw, betForAway));
+                }
+            }
+        }
     }
 }
