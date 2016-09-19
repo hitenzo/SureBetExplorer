@@ -57,6 +57,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SportingBetSite.cs" />
     <Compile Include="SureBetFinder.cs" />
+    <Compile Include="SaveToFile.cs" />
     <Compile Include="WilliamHillSite.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -64,6 +65,9 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SureBetList.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

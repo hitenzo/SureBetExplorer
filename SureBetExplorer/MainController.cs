@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace SureBetExplorer
 {
-    class MainController
+    public class MainController
     {
+        List<string> _sureBets = new List<string>();
 
         public MainController(List<IBettingWebsite> websites)
         {
-            //TO DO: create surebetfinder object and pass events as parameter
+            SureBetFinder finder = new SureBetFinder(websites);
         }
 
         //TO DO: save founded events to a file
-
     }
 }
