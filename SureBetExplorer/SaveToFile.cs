@@ -11,7 +11,7 @@ namespace SureBetExplorer
     {
         public SaveToFile(List<string> sureBets)
         {
-            File.WriteAllLines(@"C:\.net projects\SureBetExplorer\SureBetExplorer\SureBetList.txt", sureBets);
+            File.WriteAllLines(@"C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetsFolder\SureBetList.txt", sureBets);
         }
     }
 }

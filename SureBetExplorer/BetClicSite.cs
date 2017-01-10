@@ -19,7 +19,6 @@ namespace SureBetExplorer
         public BetClicSite(string adress)
         {
             _webAdress = adress;
-            ScrapeEvents();
         }
 
         public void ScrapeEvents()

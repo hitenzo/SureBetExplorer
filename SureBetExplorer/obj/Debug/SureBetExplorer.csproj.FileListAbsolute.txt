@@ -10,3 +10,13 @@ C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.dll
 C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.xml
 C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.Support.dll
 C:\.net projects\SureBetExplorer\SureBetExplorer\bin\Debug\WebDriver.Support.xml
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe.config
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.csprojResolveAssemblyReference.cache
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.pdb
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.dll
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Support.dll
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.xml
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Support.xml
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.exe
+C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.pdb

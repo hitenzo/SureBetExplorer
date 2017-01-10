@@ -18,7 +18,6 @@ namespace SureBetExplorer
         public WilliamHillSite(string adress)
         {
             _webAdress = adress;
-            ScrapeEvents();
         }
 
         public void ScrapeEvents()

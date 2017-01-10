@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SureBetExplorer
 {
-    interface IBettingWebsite
+    public interface IBettingWebsite
     {
         void ScrapeEvents();
 

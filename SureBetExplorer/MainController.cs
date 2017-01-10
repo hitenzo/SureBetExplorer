@@ -8,10 +8,17 @@ namespace SureBetExplorer
 {
     public class MainController
     {
-        List<string> _sureBets = new List<string>();
+        private List<string> _sureBets = new List<string>();
 
         public MainController(List<IBettingWebsite> websites)
         {
+            foreach (IBettingWebsite singleWebSite in websites)
+            {
+                Task task = new Task( ()=> singleWebSite.ScrapeEvents() );
+                task.Start();
+                task.Wait();
+            }
+
             SureBetFinder finder = new SureBetFinder(websites);
         }
 

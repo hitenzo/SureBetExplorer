@@ -17,7 +17,6 @@ namespace SureBetExplorer
         public SportingBetSite(string adress)
         {
             _webAdress = adress;
-            ScrapeEvents();
         }
 
         public void ScrapeEvents()
