@@ -20,8 +20,16 @@ namespace SureBetExplorer
             }
 
             SureBetFinder finder = new SureBetFinder(websites);
+            var sureBets = finder.GetSureBets();
+            if (sureBets.Any())
+            {
+                SaveSureBets(sureBets);
+            }
         }
 
-        //TO DO: save founded events to a file
+        public void SaveSureBets(List<string> sureBetsList)
+        {
+            SaveToFile saver = new SaveToFile(sureBetsList);
+        }
     }
 }
