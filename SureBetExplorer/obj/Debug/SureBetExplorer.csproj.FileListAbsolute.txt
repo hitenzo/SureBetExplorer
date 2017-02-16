@@ -20,3 +20,4 @@ C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\Web
 C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Support.xml
 C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.exe
 C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.pdb
+C:\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe.config
