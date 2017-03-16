@@ -8,13 +8,24 @@ namespace SureBetExplorer
 {
     public class SureBetFinder
     {
-        private List<string> _sureBets;
+        private List<string> _sureBets = new List<string>();
         private List<IBettingWebsite> _websites;
 
         public SureBetFinder(List<IBettingWebsite> websites)
         {
             _websites = websites;
+            ScrapeEvents();
             MatchEvents();
+        }
+
+        public void ScrapeEvents()
+        {
+            foreach (IBettingWebsite singleWebSite in _websites)
+            {
+                Task task = new Task(() => singleWebSite.ScrapeEvents());
+                task.Start();
+                task.Wait();
+            }
         }
 
         public void MatchEvents()

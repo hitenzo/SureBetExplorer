@@ -1,10 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
@@ -32,8 +27,9 @@ namespace SureBetExplorer
             var allOddsHome = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[1]/span"));
             var allOddsDraw = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[2]/span"));
             var allOddsAway = wrapper.FindElements(By.XPath(".//*[@data-track-event-name]//div[@class='match-odds']/div[3]/span"));
+            int eventsNumber = Math.Min(allOddsHome.Count, Math.Min(allOddsDraw.Count, allOddsHome.Count));
 
-            for (int i = 0; i <= names.Count - 1; i++)
+            for (int i = 0; i <= eventsNumber - 1; i++)
             {
                 string nameOfEvent = names[i].Text;
                 _eventsNames.Add(nameOfEvent);
@@ -44,7 +40,7 @@ namespace SureBetExplorer
 
                 _events.Add(new Tuple<string, double, double, double>(nameOfEvent, oddsHome, oddsDraw, oddsAway));
             }
-            driver.Close();
+            driver.Quit();
         }
 
         public List<string> GetEventsNames()

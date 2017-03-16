@@ -1,9 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SureBetExplorer
 {
@@ -11,7 +8,7 @@ namespace SureBetExplorer
     {
         public SaveToFile(List<string> sureBets)
         {
-            File.WriteAllLines(@"C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetsFolder\SureBetList.txt", sureBets);
+            File.WriteAllLines(@"C:\Users\hitenz\folderTest\SureBetList.txt", sureBets);
         }
     }
 }

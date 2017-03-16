@@ -21,3 +21,12 @@ C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\Web
 C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.exe
 C:\Users\hitenz-ja\projects\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.pdb
 C:\projects\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe.config
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe.config
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.exe
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\SureBetExplorer.pdb
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Support.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.xml
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Support.xml
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.exe
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.pdb

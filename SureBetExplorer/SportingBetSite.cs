@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Firefox;
 
@@ -46,7 +43,7 @@ namespace SureBetExplorer
 
                 _events.Add(new Tuple<string, double, double, double>(nameOfEvent, oddsHome, oddsDraw, oddsAway));
             }
-            driver.Close();
+            driver.Quit();
         }
 
         public List<string> GetEventsNames()
