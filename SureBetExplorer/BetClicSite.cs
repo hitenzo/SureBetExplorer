@@ -31,7 +31,7 @@ namespace SureBetExplorer
 
             for (int i = 0; i <= eventsNumber - 1; i++)
             {
-                string nameOfEvent = names[i].Text;
+                string nameOfEvent = UnifyEventName(names[i].Text); ;
                 _eventsNames.Add(nameOfEvent);
 
                 double oddsHome = double.Parse(allOddsHome[i].Text);
@@ -41,6 +41,12 @@ namespace SureBetExplorer
                 _events.Add(new Tuple<string, double, double, double>(nameOfEvent, oddsHome, oddsDraw, oddsAway));
             }
             driver.Quit();
+        }
+
+        private string UnifyEventName(string eventName)
+        {
+            eventName = eventName.Replace(" v ", " - ").ToLower();
+            return eventName;
         }
 
         public List<string> GetEventsNames()

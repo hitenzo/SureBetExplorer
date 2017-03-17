@@ -1,0 +1,12 @@
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\SureBetExplorer.Tests.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\SureBetExplorer.Tests.pdb
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\SureBetExplorer.exe
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\WebDriver.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\SureBetExplorer.pdb
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\WebDriver.xml
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\obj\Debug\SureBetExplorer.Tests.csprojResolveAssemblyReference.cache
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\obj\Debug\SureBetExplorer.Tests.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\obj\Debug\SureBetExplorer.Tests.pdb
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\nunit.framework.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer.Tests\bin\Debug\nunit.framework.xml

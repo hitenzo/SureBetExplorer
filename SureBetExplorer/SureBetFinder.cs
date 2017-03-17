@@ -62,6 +62,7 @@ namespace SureBetExplorer
                 double oddsAway = Math.Max(firstEventInfo.Item4, secondEventInfo.Item4);
 
                 double conditionOfEvent = (1 / oddsHome) + (1 / oddsDraw) + (1 / oddsAway);
+                int ff = 5;
                 if (conditionOfEvent < 1)
                 {
                     double betForHome = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsHome;
