@@ -8,7 +8,7 @@ namespace SureBetExplorer
 {
     public class SureBetFinder
     {
-        private List<string> _sureBets = new List<string>();
+        private List<SureBetInfo> _sureBets = new List<SureBetInfo>();
         private List<IBettingWebsite> _websites;
 
         public SureBetFinder(List<IBettingWebsite> websites)
@@ -45,7 +45,7 @@ namespace SureBetExplorer
             }
         }
 
-        public List<string> GetSureBets()
+        public List<SureBetInfo> GetSureBets()
         {
             return _sureBets;
         }
@@ -62,7 +62,6 @@ namespace SureBetExplorer
                 double oddsAway = Math.Max(firstEventInfo.Item4, secondEventInfo.Item4);
 
                 double conditionOfEvent = (1 / oddsHome) + (1 / oddsDraw) + (1 / oddsAway);
-                int ff = 5;
                 if (conditionOfEvent < 1)
                 {
                     double betForHome = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsHome;
@@ -71,8 +70,16 @@ namespace SureBetExplorer
                     string firstSiteName = _websites[i].ToString();
                     string secondSiteName = _websites[j].ToString();
 
-                    _sureBets.Add(string.Format("{0}, {1} and {2} : {3} of betting money for 1, {4} for x, {5} for 2. Bet the highest possible odds from both bookmakers",
-                        matchingEvent, firstSiteName, secondSiteName, betForHome, betForDraw, betForAway));
+                    //_sureBets.Add(string.Format("{0}, {1} and {2} : {3} of betting money for 1, {4} for x, {5} for 2. Bet the highest possible odds from both bookmakers",
+                    //    matchingEvent, firstSiteName, secondSiteName, betForHome, betForDraw, betForAway));
+                    SureBetInfo sureBet = new SureBetInfo();
+                    sureBet.MatchingEvent = matchingEvent;
+                    sureBet.FirstSiteName = firstSiteName;
+                    sureBet.SecondSiteName = secondSiteName;
+                    sureBet.BetForHome = betForHome;
+                    sureBet.BetForDraw = betForDraw;
+                    sureBet.BetForAway = betForAway;
+                    _sureBets.Add(sureBet);
                 }
             }
         }

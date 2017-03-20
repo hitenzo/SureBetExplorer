@@ -65,5 +65,7 @@ namespace SureBetExplorer
         {
             return _events;
         }
+
+        public string BookmakerName { get; set; }
     }
 }

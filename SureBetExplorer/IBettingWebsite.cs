@@ -13,5 +13,7 @@ namespace SureBetExplorer
         List<string> GetEventsNames();
 
         List<Tuple<string, double, double, double>> GetEvents();
+
+        string BookmakerName { get; set; }
     }
 }

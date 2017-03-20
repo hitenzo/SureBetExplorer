@@ -6,7 +6,7 @@ namespace SureBetExplorer
 {
     public class MainController
     {
-        private List<string> sureBets = new List<string>();
+        private List<SureBetInfo> sureBets = new List<SureBetInfo>();
 
         public MainController(List<IBettingWebsite> websites)
         {
@@ -14,7 +14,8 @@ namespace SureBetExplorer
             sureBets = finder.GetSureBets();
             if (sureBets.Any())
             {
-                SaveToFile saver = new SaveToFile(sureBets);
+                // to do: save sure bets
+                //SaveToFile saver = new SaveToFile(sureBets);
             }
         }
     }
