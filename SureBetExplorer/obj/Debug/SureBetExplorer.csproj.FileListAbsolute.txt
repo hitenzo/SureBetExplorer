@@ -31,3 +31,9 @@ D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\WebDriver.Suppor
 D:\projects me\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.exe
 D:\projects me\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.pdb
 D:\projects me\SureBetExplorer-branch\SureBetExplorer\obj\Debug\SureBetExplorer.csprojResolveAssemblyReference.cache
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\EntityFramework.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\EntityFramework.SqlServer.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\System.Data.SQLite.dll
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\EntityFramework.xml
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\EntityFramework.SqlServer.xml
+D:\projects me\SureBetExplorer-branch\SureBetExplorer\bin\Debug\System.Data.SQLite.xml

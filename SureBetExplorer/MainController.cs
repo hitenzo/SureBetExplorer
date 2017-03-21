@@ -10,13 +10,14 @@ namespace SureBetExplorer
 
         public MainController(List<IBettingWebsite> websites)
         {
-            SureBetFinder finder = new SureBetFinder(websites);
-            sureBets = finder.GetSureBets();
-            if (sureBets.Any())
-            {
-                // to do: save sure bets
-                //SaveToFile saver = new SaveToFile(sureBets);
-            }
+            SureBetRepository repository = new SureBetRepository();
+            //SureBetFinder finder = new SureBetFinder(websites);
+            //sureBets = finder.GetSureBets();
+            //if (sureBets.Any())
+            //{
+            //    // to do: save sure bets
+            //    //SaveToFile saver = new SaveToFile(sureBets);
+            //}
         }
     }
 }
