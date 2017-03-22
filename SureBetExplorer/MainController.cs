@@ -6,18 +6,17 @@ namespace SureBetExplorer
 {
     public class MainController
     {
-        private List<SureBetInfo> sureBets = new List<SureBetInfo>();
-
         public MainController(List<IBettingWebsite> websites)
         {
-            SureBetRepository repository = new SureBetRepository();
-            //SureBetFinder finder = new SureBetFinder(websites);
-            //sureBets = finder.GetSureBets();
-            //if (sureBets.Any())
-            //{
-            //    // to do: save sure bets
-            //    //SaveToFile saver = new SaveToFile(sureBets);
-            //}
+            SureBetFinder finder = new SureBetFinder(websites);
+            List<SureBetInfo> sureBets = new List<SureBetInfo>();
+            sureBets = finder.GetSureBets();
+            if (sureBets.Any())
+            {
+                SureBetRepository sureBetRepository = new SureBetRepository();
+                sureBetRepository.Add(sureBets);
+            }
         }
+
     }
 }

@@ -67,11 +67,9 @@ namespace SureBetExplorer
                     double betForHome = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsHome;
                     double betForDraw = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsDraw;
                     double betForAway = (1 / (1 / oddsHome + 1 / oddsDraw + 1 / oddsAway)) / oddsAway;
-                    string firstSiteName = _websites[i].ToString();
-                    string secondSiteName = _websites[j].ToString();
+                    string firstSiteName = _websites[i].BookmakerName;
+                    string secondSiteName = _websites[j].BookmakerName;
 
-                    //_sureBets.Add(string.Format("{0}, {1} and {2} : {3} of betting money for 1, {4} for x, {5} for 2. Bet the highest possible odds from both bookmakers",
-                    //    matchingEvent, firstSiteName, secondSiteName, betForHome, betForDraw, betForAway));
                     SureBetInfo sureBet = new SureBetInfo();
                     sureBet.MatchingEvent = matchingEvent;
                     sureBet.FirstSiteName = firstSiteName;

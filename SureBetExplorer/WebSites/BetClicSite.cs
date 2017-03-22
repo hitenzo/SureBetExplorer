@@ -59,6 +59,11 @@ namespace SureBetExplorer
             return _events;
         }
 
-        public string BookmakerName { get; set; }
+        private string _bookMakerSite;
+        public string BookmakerName
+        {
+            get { return "BetClick"; }
+            set { _bookMakerSite = value; }
+        }
     }
 }

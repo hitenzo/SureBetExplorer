@@ -22,6 +22,13 @@ namespace SureBetExplorer.Tests.TestData
             "Ajax - FC Kopenhaga"
         };
 
+        private string _bookMakerSite;
+        public string BookmakerName
+        {
+            get { return "SportingBet"; }
+            set { _bookMakerSite = value; }
+        }
+
         private string _webAdress = "Mock";
 
         public List<string> GetEventsNames()

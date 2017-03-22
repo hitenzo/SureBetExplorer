@@ -8,7 +8,7 @@ namespace SureBetExplorer
 {
     public interface IRepository
     {
-        void Add(SureBetInfo sureBet);
-        void Remove(int id);
+        void Add(List<SureBetInfo> sureBets);
+        void CloseConnection();
     }
 }

@@ -21,7 +21,9 @@ namespace SureBetExplorer.Tests
             listOfWebsites.Add(williamSite);
             listOfWebsites.Add(betClickSite);
             var finder = new SureBetFinder(listOfWebsites);
-            var actual = finder.GetSureBets().FirstOrDefault();
+            SureBetInfo actualSureBet = finder.GetSureBets().FirstOrDefault();
+            string actual = actualSureBet.MatchingEvent + ", " + actualSureBet.FirstSiteName + ", " + actualSureBet.SecondSiteName + ", home: " +
+                actualSureBet.BetForHome.ToString() + ", draw: " + actualSureBet.BetForDraw.ToString() + ", away: " + actualSureBet.BetForAway.ToString();
             var filePath = Path.Combine(Directory.GetParent(Directory.GetCurrentDirectory()).Parent.FullName, "TestData\\SureBetsInfo.txt");
             var expected = File.ReadAllLines(filePath).FirstOrDefault();
             Assert.AreEqual(expected, actual);
